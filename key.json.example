@@ -1,0 +1,8 @@
+{
+  "clientid": "your-sap-client-id",
+  "clientsecret": "your-sap-client-secret",
+  "url": "https://your-instance.authentication.region.hana.ondemand.com",
+  "serviceurls": {
+    "AI_API_URL": "https://api.ai.region.aws.ml.hana.ondemand.com"
+  }
+}

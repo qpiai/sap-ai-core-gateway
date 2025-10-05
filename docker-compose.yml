@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  sap-ai-core-proxy:
+    build: .
+    ports:
+      - "4000:4000"
+      - "8082:8082"
+    volumes:
+      - ./key.json:/app/key.json:ro
+      - ./logs:/app/logs
+    environment:
+      - SAP_PROXY_API_KEY=${SAP_PROXY_API_KEY:-sk-sap-proxy-secret-key-2024}
+      - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY:-sk-sap-ai-core-proxy-key-2024}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/health", "&&", "curl", "-f", "http://localhost:8082/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

@@ -1,0 +1,36 @@
+[project]
+name = "sap-ai-core-proxy"
+version = "0.1.0"
+description = "OpenAI-compatible LiteLLM proxy for SAP AI Core"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "SAP AI Core Team", email = "team@example.com" }
+]
+license = { text = "Apache-2.0" }
+dependencies = [
+    "httpx>=0.28.1",
+    "litellm[proxy]>=1.77.5",
+    "prometheus-client>=0.23.1",
+    "python-dotenv>=1.1.1",
+    "pyyaml>=6.0.3",
+    "redis>=6.4.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.27.0",
+    "tenacity>=8.2.0",
+    "sqlalchemy>=2.0.43",
+    "prisma>=0.15.0",
+]
+
+[project.scripts]
+sap-proxy = "src.proxy:main"
+test-api = "scripts.test_api:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-cov>=7.0.0",
+    "pytest-timeout>=2.3.1",
+    "openai>=1.0.0",
+]

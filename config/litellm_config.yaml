@@ -1,0 +1,37 @@
+model_list:
+  # Routes to SAP OAuth proxy (port 4000)
+  # The proxy handles OAuth2 and deployment mapping
+
+  - model_name: gpt-4o
+    litellm_params:
+      model: openai/gpt-4o
+      api_base: http://localhost:4000/v1
+      api_key: os.environ/SAP_PROXY_API_KEY
+
+  - model_name: gpt-4
+    litellm_params:
+      model: openai/gpt-4o
+      api_base: http://localhost:4000/v1
+      api_key: os.environ/SAP_PROXY_API_KEY
+
+  - model_name: orchestration
+    litellm_params:
+      model: openai/orchestration
+      api_base: http://localhost:4000/v1
+      api_key: os.environ/SAP_PROXY_API_KEY
+
+litellm_settings:
+  drop_params: false
+  set_verbose: true
+
+router_settings:
+  num_retries: 2
+  timeout: 120
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  disable_spend_logs: true
+  disable_master_key_return: true
+  allow_requests_on_db_unavailable: true
+  # Don't use database
+  database_url: null
