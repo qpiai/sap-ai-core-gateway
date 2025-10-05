@@ -6,6 +6,13 @@ OpenAI-compatible proxy for SAP AI Core. Handles OAuth2 authentication so you ca
 
 SAP AI Core is already OpenAI-compatible but requires OAuth2 authentication. This proxy translates simple API keys → OAuth2 tokens, letting you use standard OpenAI tools.
 
+## Enterprise Use Cases
+
+- **RAG Applications:** Use with any OpenAI-compatible framework to access SAP HANA Vector Engine
+- **AI Agents:** Integrate SAP-managed LLMs with OpenAI-compatible agent frameworks
+- **Compliance:** Keep LLM traffic within SAP infrastructure for regulated industries
+- **Multi-vendor AI:** Standardize on OpenAI API across Azure, AWS Bedrock, and SAP AI Core
+
 ## Quick Start
 
 **1. Install dependencies:**
@@ -146,3 +153,7 @@ Client → LiteLLM (8082) → SAP Proxy (4000) → SAP AI Core
 ## License
 
 MIT
+
+---
+
+Built with ❤️ by [QpiAI](https://qpiai.tech)
